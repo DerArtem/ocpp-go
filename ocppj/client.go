@@ -61,7 +61,7 @@ func (c *Client) SetErrorHandler(handler func(err *ocpp.Error, details interface
 }
 
 // Registers the handler to be called on timeout.
-func (c *Client) SetOnRequestCanceled(handler CanceledRequestHandler) {
+func (c *Client) SetOnRequestCanceled(handler func(requestId string, request ocpp.Request, err *ocpp.Error)) {
 	c.dispatcher.SetOnRequestCanceled(handler)
 }
 
